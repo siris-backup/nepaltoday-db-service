@@ -1,0 +1,5 @@
+/node_modules/*
+
+#.env file contains environment variables. WARNING - .env file shouldn't be checked in
+.env
+yarn-error.log
