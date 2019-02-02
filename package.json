@@ -9,7 +9,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "test",
-		"start": "babel-node index.js"
+		"start": "node index.js"
 	},
 	"keywords": [
 		"mongodb",
@@ -18,15 +18,10 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"babel-cli": "^6.26.0",
-		"babel-preset-latest": "^6.24.1",
-		"babel-preset-stage-2": "^6.24.1",
 		"mongodb": "3.1.13",
 		"mongoose": "5.4.8"
 	},
 	"devDependencies": {
-		"eslint": "^5.12.1",
-		"eslint-config-airbnb-base": "^13.1.0",
-		"eslint-plugin-import": "^2.16.0"
+		"eslint": "^5.13.0"
 	}
 }

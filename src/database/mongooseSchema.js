@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const NewsArticle = mongoose.model('NewsArticle', {
 	id: String,
@@ -15,6 +15,6 @@ const NewsSource = mongoose.model('NewsSource', {
 });
 
 
-export default {
+module.exports = {
 	NewsArticle, NewsSource
 };

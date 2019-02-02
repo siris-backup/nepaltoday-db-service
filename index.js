@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
-import mongooseSchema from './src/database/mongooseSchema';
+const mongoose = require('mongoose');
+const mongooseSchema = require('./src/database/mongooseSchema');
 
 mongoose.connect('mongodb://localhost:27017/graphqldb');
 
-export default {
+module.exports = {
 	mongooseSchema
 };
