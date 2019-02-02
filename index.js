@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const mongooseSchema = require('./src/database/mongooseSchema');
+const newsDbService = require('./src/newsDbService.js');
 
-mongoose.connect('mongodb://localhost:27017/graphqldb');
+newsDbService.getNewsArticles();
+
 
 module.exports = {
-	mongooseSchema
+	newsDbService
 };

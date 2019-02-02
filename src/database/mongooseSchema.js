@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const NewsArticle = mongoose.model('NewsArticle', {
+const Article = mongoose.model('Article', {
 	id: String,
 	title: String,
 	url: String,
@@ -8,7 +8,7 @@ const NewsArticle = mongoose.model('NewsArticle', {
 	content: String
 });
 
-const NewsSource = mongoose.model('NewsSource', {
+const Source = mongoose.model('Source', {
 	id: String,
 	name: String,
 	url: String
@@ -16,5 +16,5 @@ const NewsSource = mongoose.model('NewsSource', {
 
 
 module.exports = {
-	NewsArticle, NewsSource
+	Article, Source
 };
