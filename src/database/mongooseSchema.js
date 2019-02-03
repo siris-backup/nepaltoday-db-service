@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const Article = mongoose.model('Article', {
 	id: String,
 	title: String,
-	url: String,
+	link: String,
+	imageLink: String,
+	isHeadline: Boolean,
 	shortDescription: String,
-	content: String
+	source: String
 });
 
 const Source = mongoose.model('Source', {
