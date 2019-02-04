@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const { Article } = require('./database/mongooseSchema');
 
-mongoose.connect('mongodb://localhost:27017/nepaltodaydb', { useNewUrlParser: true });
+mongoose.promise = global.Promise;
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 module.exports = {
 	saveArticle: async (article) => {

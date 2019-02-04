@@ -4,8 +4,11 @@
 
 
 ## Steps to run
-
-1. npm install && npm start
+1. npm install
+2. download .env file from https://drive.google.com/drive/u/0/folders/1Y3xx-qzCzDxnxN1byfG5rtcBhHF1ObGr
+3. add the downloaded .env file to root folder
+4. mocha -g saveArticle    -- it will run tests with saveArticle in `it` description
+5. don't checkin .env file
 
 
 ##  Key points
