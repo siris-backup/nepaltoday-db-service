@@ -7,13 +7,17 @@ const Article = mongoose.model('Article', {
 	imageLink: String,
 	isHeadline: Boolean,
 	shortDescription: String,
-	source: String
+	source: String,
+	createdDate: { type: Date, default: Date.now },
+	modifiedDate: { type: Date, default: Date.now }
 });
 
 const Source = mongoose.model('Source', {
 	id: String,
 	name: String,
-	url: String
+	url: String,
+	createdDate: { type: Date, default: Date.now },
+	modifiedDate: { type: Date, default: Date.now }
 });
 
 

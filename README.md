@@ -24,5 +24,7 @@
 * `show collections`  --to show all collections/tables
 * `db.articles.find()` --to show all articles in the collection
 * `db.articles.find({title: 'new title'})` --to show article/articles with title = 'new title'
+* `db.articles.find({}, {title: 1})` --to show title field of all articles (no criteria)
 * `db.articles.remove({})` --to remove all articles documents
 * `db.articles.remove({title: 'new title'})` --to remove all articles with title = 'new title'
+* `db.articles.update({_id:{$exists:true}}, { $set: {createdDate: Date.Now}}, {multi: true})` --to update multiple articles with createdDate = Date.Now
