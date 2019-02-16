@@ -1,6 +1,6 @@
 {
 	"name": "nepaltoday-db-service",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
 	"engines": {
 		"node": ">=11.9.0",

@@ -9,6 +9,8 @@ describe('NewsDbService', () => {
 		const article = { title: 'dummy title' };
 		const articleSaved = await newsDbService.saveArticle(article);
 		expect(articleSaved._id).to.not.be.empty;
+		expect(articleSaved.createdDate).to.not.be.undefined;
+		expect(articleSaved.modifiedDate).to.not.be.undefined;
 	});
 });
 
