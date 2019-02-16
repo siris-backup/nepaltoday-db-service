@@ -8,6 +8,7 @@ const Article = mongoose.model('Article', {
 	isHeadline: Boolean,
 	shortDescription: String,
 	source: String,
+	publishedDate: { type: Date },
 	createdDate: { type: Date, default: Date.now },
 	modifiedDate: { type: Date, default: Date.now }
 });
