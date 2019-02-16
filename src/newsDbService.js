@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Article } = require('./database/mongooseSchema');
 
 mongoose.promise = global.Promise;
-mongoose.connect('mongodb://nepaltodaydb:DvWXikMDscidxa1TBpjkQyEuTcLk7GKp1Qq0zKfkElZceixYwnNXfjKV8aF0IWnTXRqIk3WXmnM7lyK2PG8Nhw==@nepaltodaydb.documents.azure.com:10255/nepaltodaydb?ssl=true', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 module.exports = {
 	saveArticle: async (article) => {
