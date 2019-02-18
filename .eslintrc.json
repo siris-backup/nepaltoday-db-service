@@ -1,20 +1,21 @@
 {
 	"env": {
-		"node": true,
-		"mocha": true
+		"commonjs": true,
+		"node": true
 	},
-	"extends": "eslint:recommended",
-	"parserOptions": {
-		"ecmaVersion": 2018
+	"extends": "standard",
+	"globals": {
+		"Atomics": "readable",
+		"SharedArrayBuffer": "readable"
 	},
 	"rules": {
 		"indent": [
 			"error",
 			"tab"
 		],
-		"linebreak-style": [
-			"error",
-			"unix"
-		]
+		"no-extra-semi": "off",
+		"no-tabs": "off",
+		"semi": "off",
+		"no-unused-expressions": "off"
 	}
 }

@@ -7,7 +7,7 @@ const Article = mongoose.model('Article', {
 	imageLink: String,
 	isHeadline: Boolean,
 	shortDescription: String,
-	source: String,
+	source: { type: mongoose.Schema.Types.ObjectId, ref: 'Source' },
 	publishedDate: { type: Date },
 	createdDate: { type: Date, default: Date.now },
 	modifiedDate: { type: Date, default: Date.now }
@@ -16,11 +16,11 @@ const Article = mongoose.model('Article', {
 const Source = mongoose.model('Source', {
 	id: String,
 	name: String,
-	url: String,
+	link: String,
+	logoLink: String,
 	createdDate: { type: Date, default: Date.now },
 	modifiedDate: { type: Date, default: Date.now }
 });
-
 
 module.exports = {
 	Article, Source
