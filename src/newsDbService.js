@@ -16,5 +16,9 @@ module.exports = {
 	getAllSources: async () => {
 		const sources = await Source.find();
 		return sources;
-	}
+	},
+	isExist: async (newslink) => {
+		const count = await Article.count({ link: newslink });
+		return count > 0 ? true : false;
+	},
 };
