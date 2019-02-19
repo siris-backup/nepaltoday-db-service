@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Article = mongoose.model('Article', {
 	id: String,
 	title: String,
-	link: {type: String,unique:true},
+	link:{type: String,unique:true},
 	imageLink: String,
 	isHeadline: Boolean,
 	shortDescription: String,

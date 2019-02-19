@@ -6,7 +6,21 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 module.exports = {
 	saveArticles: async (articles) => {
-		const articlesSaved = await Article.insertMany(articles);
+		var articlesSaved=null;
+		try {
+			const articlesSaved= await Article.insertMany( articles,{ordered:false});
+		} 
+		catch (error) {
+			if (error.code == 11000 || error.code == 11001)
+			{
+				console.log ("ignored duplicates")
+			}
+			else
+			{
+				console.log(error);
+			}
+			
+		}
 		return articlesSaved;
 	},
 	getArticles: async () => {
