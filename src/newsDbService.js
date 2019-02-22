@@ -6,20 +6,15 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 
 module.exports = {
 	saveArticles: async (articles) => {
-		var articlesSaved=null;
+		var articlesSaved = null;
 		try {
-			const articlesSaved= await Article.insertMany( articles,{ordered:false});
-		} 
-		catch (error) {
-			if (error.code == 11000 || error.code == 11001)
-			{
-				console.log ("ignored duplicates")
-			}
-			else
-			{
+			await Article.insertMany(articles, { ordered: false });
+		} catch (error) {
+			if (error.code === 11000 || error.code === 11001) {
+				console.log('ignored duplicates')
+			} else {
 				console.log(error);
 			}
-			
 		}
 		return articlesSaved;
 	},
@@ -33,6 +28,6 @@ module.exports = {
 	},
 	isExist: async (newslink) => {
 		const count = await Article.count({ link: newslink });
-		return count > 0 ? true : false;
-	},
+		return count > 0;
+	}
 };
