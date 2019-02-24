@@ -3,9 +3,9 @@ const Schema = mongoose.Schema
 
 const Article = mongoose.model('Article', new Schema({
 	id: String,
-	title: String,
+	title: { type: String, required: true },
 	link: { type: String, unique: true },
-	imageLink: String,
+	imageLink: { type: String, required: true },
 	isHeadline: Boolean,
 	shortDescription: String,
 	source: { type: mongoose.Schema.Types.ObjectId, ref: 'Source' },
