@@ -9,6 +9,7 @@ const Article = mongoose.model('Article', new Schema({
 	isHeadline: Boolean,
 	shortDescription: String,
 	source: { type: mongoose.Schema.Types.ObjectId, ref: 'Source' },
+	hostIp: String,
 	publishedDate: { type: Date },
 	createdDate: { type: Date, default: Date.now },
 	modifiedDate: { type: Date, default: Date.now }
