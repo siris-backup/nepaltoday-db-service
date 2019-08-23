@@ -1,59 +1,65 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 const {
-  Article,
-  Source,
-  TwitterHandlers
-} = require("./database/mongooseSchema");
+	Article,
+	Source,
+	TwitterHandle,
+	Tweet
+} = require('./database/mongooseSchema')
 
-mongoose.promise = global.Promise;
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.promise = global.Promise
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 
 module.exports = {
-  // articles
-  saveArticles: async articles => {
-    var articlesSaved = null;
-    try {
-      await Article.insertMany(articles, { ordered: false });
-    } catch (error) {
-      if (error.code === 11000 || error.code === 11001) {
-        console.log("ignored duplicates");
-      } else {
-        console.log(error);
-      }
-    }
-    return articlesSaved;
-  },
-  getArticles: async () => {
-    const newsArticles = await Article.find();
-    return newsArticles;
-  },
-  // save Tweeter handler
-  saveTwitterHandler: async handlers => {
-    var twitterHandlerSaved = null;
-    try {
-      await TwitterHandlers.insertMany(handlers, { ordered: false });
-    } catch (error) {
-      if (error.code === 11000 || error.code === 11001) {
-        console.log("ignored duplicates");
-      } else {
-        console.log(error);
-      }
-    }
-    return twitterHandlerSaved;
-  },
-  getTweeterHandlers: async () => {
-    const tweeterHandlers = await TwitterHandlers.find();
-    return tweeterHandlers;
-  },
+	saveArticles: async articles => {
+		var articlesSaved = null
+		try {
+			articlesSaved = await Article.insertMany(articles, { ordered: false })
+		} catch (error) {
+			if (error.code === 11000 || error.code === 11001) {
+				console.log('ignored duplicates')
+			} else {
+				console.log(error)
+			}
+		}
+		return articlesSaved
+	},
 
-  // sources
-  getAllSources: async () => {
-    const sources = await Source.find();
-    return sources;
-  },
-  // if link exist
-  isExist: async newslink => {
-    const count = await Article.count({ link: newslink });
-    return count > 0;
-  }
-};
+	getArticles: async () => {
+		const newsArticles = await Article.find()
+		return newsArticles
+	},
+
+	getTwitterHandles: async () => {
+		return TwitterHandle.find()
+	},
+
+	saveTweets: async tweets => {
+		var tweetSaved = null
+		try {
+			tweetSaved = await Tweet.insertMany(tweets, {
+				ordered: false
+			})
+		} catch (error) {
+			if (error.code === 11000 || error.code === 11001) {
+				console.log('ignored duplicates')
+			} else {
+				console.log(error)
+			}
+		}
+		return tweetSaved
+	},
+
+	getTweets: async () => {
+		return Tweet.find()
+	},
+
+	getAllSources: async () => {
+		const sources = await Source.find()
+		return sources
+	},
+
+	isExist: async newslink => {
+		const count = await Article.count({ link: newslink })
+		return count > 0
+	}
+}
