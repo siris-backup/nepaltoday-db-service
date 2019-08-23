@@ -30,8 +30,8 @@ const Source = mongoose.model(
   })
 );
 
-const Twitter = mongoose.model(
-  "Twitter",
+const TwitterHandlers = mongoose.model(
+  "TwitterHandlers",
   new Schema({
     id: String,
     name: String,
@@ -44,5 +44,5 @@ const Twitter = mongoose.model(
 module.exports = {
   Article,
   Source,
-  Twitter
+  TwitterHandlers
 };
