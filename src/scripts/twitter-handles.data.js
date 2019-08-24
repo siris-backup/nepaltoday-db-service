@@ -16,9 +16,11 @@ const handles = [
 	try {
 		const initialHandles = await getTwitterHandles()
 		if (!initialHandles) {
-			saveTwitterHandles(handles)
+			const savedHandles = await saveTwitterHandles(handles)
+			console.log('saved handles', savedHandles)
+		} else {
+			console.log('Handles already exist data are ==', initialHandles)
 		}
-		console.log('Handles already exist data are ==', initialHandles)
 	} catch (error) {
 		if (error.code === 11000 || error.code === 11001) {
 			console.log('ignored duplicates')
