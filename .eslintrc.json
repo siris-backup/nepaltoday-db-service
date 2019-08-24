@@ -1,21 +1,15 @@
 {
-	"env": {
-		"commonjs": true,
-		"node": true
-	},
-	"extends": "standard",
-	"globals": {
-		"Atomics": "readable",
-		"SharedArrayBuffer": "readable"
-	},
-	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
-		"no-extra-semi": "off",
-		"no-tabs": "off",
-		"semi": "off",
-		"no-unused-expressions": "off"
-	}
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": "standard",
+  "rules": {
+    "indent": ["error", "tab"],
+    "no-extra-semi": "off",
+    "no-tabs": "off",
+    "semi": "off",
+    "no-unused-expressions": "off"
+  }
 }
