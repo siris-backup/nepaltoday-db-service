@@ -31,7 +31,7 @@ const Source = mongoose.model(
 )
 
 const TwitterHandle = mongoose.model(
-	'TwitterHandles',
+	'TwitterHandle',
 	new Schema({
 		id: String,
 		name: String,
@@ -47,7 +47,8 @@ const Tweet = mongoose.model(
 		TwitterHandleId: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'TwitterHandle'
-		}
+		},
+		text: String
 	})
 )
 
