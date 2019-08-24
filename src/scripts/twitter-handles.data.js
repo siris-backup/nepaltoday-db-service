@@ -1,5 +1,6 @@
 const { en } = require('../lang/en')
 const { TwitterHandle } = require('../database/mongooseSchema')
+const { getTwitterHandles, saveTwitterHandles } = require('../TweetDbService')
 
 /* eslint-disable no-undef */
 const { TECH } = en.category
@@ -11,14 +12,13 @@ const handles = [
 		weight: 20
 	}
 ]
-
-function insertInitialHandles () {
+;(async function () {
 	try {
-		const initialHandles = TwitterHandle.find()
+		const initialHandles = await getTwitterHandles()
 		if (!initialHandles) {
-			TwitterHandle.insertMany(handles, { ordered: false })
+			saveTwitterHandles(handles)
 		}
-		console.log('Handles already exist')
+		console.log('Handles already exist data are ==', initialHandles)
 	} catch (error) {
 		if (error.code === 11000 || error.code === 11001) {
 			console.log('ignored duplicates')
@@ -27,6 +27,4 @@ function insertInitialHandles () {
 		}
 	}
 	return null
-}
-
-insertInitialHandles()
+})()
