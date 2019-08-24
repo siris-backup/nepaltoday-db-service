@@ -9,7 +9,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --testMatch '**/?(*.)+(spec|test).[jt]s?(x)'",
-    "start": "node index.js"
+    "start": "node index.js",
+    "insert:data": "node  src/scripts/*.data.js"
   },
   "keywords": [
     "mongodb",
