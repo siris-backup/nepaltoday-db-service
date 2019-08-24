@@ -1,19 +1,9 @@
-const mongoose = require('mongoose')
-const {
-	Article,
-	Source,
-	TwitterHandle,
-	Tweet
-} = require('./database/mongooseSchema')
-
-mongoose.promise = global.Promise
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+const { Article, Source, TwitterHandle, Tweet } = require('./database/mongooseSchema')
 
 module.exports = {
 	saveArticles: async articles => {
-		var articlesSaved = null
 		try {
-			articlesSaved = await Article.insertMany(articles, { ordered: false })
+			return Article.insertMany(articles, { ordered: false })
 		} catch (error) {
 			if (error.code === 11000 || error.code === 11001) {
 				console.log('ignored duplicates')
@@ -21,7 +11,11 @@ module.exports = {
 				console.log(error)
 			}
 		}
-		return articlesSaved
+		return null
+	},
+
+	deleteArticles: async conditions => {
+		return Article.deleteMany(conditions)
 	},
 
 	getArticles: async () => {
