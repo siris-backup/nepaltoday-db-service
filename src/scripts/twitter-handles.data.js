@@ -1,5 +1,4 @@
 const { en } = require('../lang/en')
-const { TwitterHandle } = require('../database/mongooseSchema')
 const { getTwitterHandles, saveTwitterHandles } = require('../TweetDbService')
 
 /* eslint-disable no-undef */
@@ -12,7 +11,8 @@ const handles = [
 		weight: 20
 	}
 ]
-;(async function () {
+
+const insertTwitterHandles = async () => {
 	try {
 		const initialHandles = await getTwitterHandles()
 		if (!initialHandles) {
@@ -29,4 +29,11 @@ const handles = [
 		}
 	}
 	return null
-})()
+}
+
+Promise.all([insertTwitterHandles()])
+	.then(result => {
+		console.log('Printing result', result);
+	}).catch(reason => {
+		console.log('Printing reason', reason);
+	})
