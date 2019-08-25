@@ -44,7 +44,7 @@ const TwitterHandle = mongoose.model(
 const Tweet = mongoose.model(
 	'Tweet',
 	new Schema({
-		twitterHandleId: {
+		twitterHandle: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'TwitterHandle'
 		},
