@@ -5,10 +5,9 @@ module.exports = {
 		return TwitterHandle.find()
 	},
 
-	saveTwitterHandles: async tweets => {
-		var tweeterHandlers = null
+	saveTwitterHandles: async handles => {
 		try {
-			tweeterHandlers = await TwitterHandle.insertMany(tweets, {
+			return await TwitterHandle.insertMany(handles, {
 				ordered: false
 			})
 		} catch (error) {
@@ -18,8 +17,12 @@ module.exports = {
 				console.log(error)
 			}
 		}
-		return tweeterHandlers
 	},
+
+	deleteTwitterHandles: async conditions => {
+		return TwitterHandle.deleteMany(conditions)
+	},
+
 	saveTweets: async tweets => {
 		var tweetSaved = null
 		try {
