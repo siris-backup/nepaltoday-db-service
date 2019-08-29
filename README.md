@@ -4,6 +4,8 @@
 
 ## Steps to run
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/siristechnology/nepaltoday-db-service.svg)](https://greenkeeper.io/)
+
 1. npm install
 2. download .env file from https://drive.google.com/drive/u/0/folders/1Y3xx-qzCzDxnxN1byfG5rtcBhHF1ObGr
 3. add the downloaded .env file to root folder
