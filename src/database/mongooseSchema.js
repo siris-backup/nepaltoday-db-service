@@ -26,6 +26,12 @@ const Source = mongoose.model(
     name: String,
     link: String,
     logoLink: String,
+    category: [
+      {
+        name: String,
+        path: String
+      }
+    ],
     createdDate: { type: Date, default: Date.now },
     modifiedDate: { type: Date, default: Date.now }
   })
