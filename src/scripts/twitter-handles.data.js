@@ -2,8 +2,8 @@
 
 // Insert News Sources
 db.twitterhandles.insert({
-  handle: '@itsmeshrijan',
-  name: 'Shrijan',
+  handle: "@itsmeshrijan",
+  name: "Shrijan",
   weight: 20,
-  category: 'TECHNOLOGY'
-})
+  category: "TECHNOLOGY"
+});
