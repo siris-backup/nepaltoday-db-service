@@ -7,8 +7,14 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
 describe('TweetDbService', () => {
 	it('getTwitterHandles should return Twitter handles', async () => {
 		const twitterHandles = await TweetDbService.getTwitterHandles()
-		console.log('twitterHandles', twitterHandles)
-		expect(twitterHandles.length).toBeGreaterThan(1)
+		expect(twitterHandles.length).toBeGreaterThan(0)
+	})
+
+	it('saveTwitterHandles should save Twitter handles', async () => {
+		const handles = { name: 'dummy celebrity' }
+		const twitterHandles = await TweetDbService.saveTwitterHandles([handles])
+
+		TweetDbService.deleteTwitterHandles({ _id: twitterHandles[0]._id })
 	})
 
 	it('saveTweets should save tweets', async () => {
