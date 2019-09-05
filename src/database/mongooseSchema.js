@@ -11,7 +11,6 @@ const Article = mongoose.model(
 		isHeadline: Boolean,
 		shortDescription: String,
 		category: String,
-		content: String,
 		source: { type: mongoose.Schema.Types.ObjectId, ref: 'Source' },
 		hostIp: String,
 		publishedDate: { type: Date },
