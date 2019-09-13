@@ -59,7 +59,7 @@ const Tweet = mongoose.model(
 		text: String,
 		createdAt: { type: Date, default: Date.now },
 		name: String,
-		profile_image: String,
+		profileImage: String,
 		description: String
 	})
 )
