@@ -56,7 +56,11 @@ const Tweet = mongoose.model(
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'TwitterHandle'
 		},
-		text: String
+		text: String,
+		createdAt: { type: Date, default: Date.now },
+		name: String,
+		profile_image: String,
+		description: String
 	})
 )
 
