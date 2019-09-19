@@ -45,7 +45,8 @@ const TwitterHandle = mongoose.model(
 		name: String,
 		handle: String,
 		category: String,
-		weight: Number
+		userWeight: Number,
+		categoryWeight: Number
 	})
 )
 
