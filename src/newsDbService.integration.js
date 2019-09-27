@@ -1,8 +1,10 @@
 require('dotenv').config()
-const newsDbService = require('./newsDbService.js')
 const mongoose = require('mongoose')
+const { DATABASE_URL } = require('./config/env')
+const newsDbService = require('./newsDbService.js')
+
 mongoose.promise = global.Promise
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
 
 describe('NewsDbService', () => {
 	it('saveArticle should save an article successfully.', async () => {

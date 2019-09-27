@@ -1,8 +1,11 @@
 require('dotenv').config()
-const TweetDbService = require('./TweetDbService.js')
 const mongoose = require('mongoose')
+
+const { DATABASE_URL } = require('./config/env')
+const TweetDbService = require('./TweetDbService.js')
+
 mongoose.promise = global.Promise
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
 
 describe('TweetDbService', () => {
 	it('getTwitterHandles should return Twitter handles', async () => {
