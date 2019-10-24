@@ -71,7 +71,8 @@ const User = mongoose.model(
 	'User',
 	new Schema({
 		fcmToken: { type: String, unique: true },
-		countryCode: String
+		countryCode: String,
+		timeZone: String
 	})
 )
 
