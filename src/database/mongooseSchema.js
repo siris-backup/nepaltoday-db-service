@@ -67,10 +67,19 @@ const Tweet = mongoose.model(
 		description: String
 	})
 )
+const User = mongoose.model(
+	'User',
+	new Schema({
+		fcmToken: { type: String, unique: true },
+		countryCode: String,
+		timeZone: String
+	})
+)
 
 module.exports = {
 	Article,
 	Source,
 	TwitterHandle,
-	Tweet
+	Tweet,
+	User
 }
