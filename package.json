@@ -22,10 +22,10 @@
 		"@babel/polyfill": "7.6.0",
 		"dotenv": "^8.1.0",
 		"mongodb": "3.3.3",
-		"mongoose": "5.7.6"
+		"mongoose": "5.7.7"
 	},
 	"devDependencies": {
-		"eslint": "6.5.0",    
+		"eslint": "6.6.0",    
 		"eslint-config-prettier": "6.5.0",
 		"eslint-config-standard": "14.1.0",
 		"eslint-plugin-import": "2.18.2",
