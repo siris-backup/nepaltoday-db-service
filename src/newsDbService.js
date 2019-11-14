@@ -28,7 +28,8 @@ module.exports = {
 	},
 
 	deleteArticles: async conditions => {
-		return await Article.deleteMany(conditions)
+		const deletedArticles = await Article.deleteMany(conditions)
+		return deletedArticles
 	},
 
 	getArticles: async () => {
