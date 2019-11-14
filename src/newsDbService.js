@@ -39,6 +39,7 @@ module.exports = {
 
 	getLatestNewsArticle: async () => {
 		const latestNewsArticle = await Article.find({ category: 'news' })
+			.sort({ _id: -1 })
 			.limit(1)
 			.lean()
 		return latestNewsArticle
