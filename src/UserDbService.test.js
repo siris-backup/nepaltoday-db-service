@@ -1,11 +1,7 @@
-const userDbService = require('./userDbService.js')
-
-require('dotenv').config()
+const { User } = require('./database/mongooseSchema')
 
 describe('User Db service ', () => {
 	it('get all user from db', async () => {
-		const users = await userDbService.getUsers()
-
-		expect(users).toBeDefined()
+		jest.spyOn(User, 'find').mockImplementation(() => {})
 	})
 })
