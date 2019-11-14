@@ -1,7 +1,8 @@
-const { User } = require("./database/mongooseSchema");
+const { User } = require('./database/mongooseSchema')
 
 module.exports = {
-  getUsers: async () => {
-    return await User.find();
-  }
-};
+	getUsers: async () => {
+		const users = await User.find()
+		return users
+	}
+}
