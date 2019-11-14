@@ -37,6 +37,13 @@ module.exports = {
 		return newsArticles
 	},
 
+	getLatestNewsArticle: async () => {
+		const latestNewsArticle = await Article.find({ category: 'news' })
+			.limit(1)
+			.lean()
+		return latestNewsArticle
+	},
+
 	getAllSources: async () => {
 		const sources = await Source.find()
 		return sources
