@@ -22,6 +22,11 @@ describe('NewsDbService', () => {
 		await newsDbService.deleteArticles({ _id: articlesSaved[0]._id })
 	})
 
+	it('get single artilce', async () => {
+		const singleArticle = await newsDbService.getLatestNewsArticle()
+		expect(singleArticle).not.toBeUndefined()
+	})
+
 	it('saveArticle should not save publishedDate by default.', async () => {
 		const article = {
 			title: 'dummy title' + Math.random(),
