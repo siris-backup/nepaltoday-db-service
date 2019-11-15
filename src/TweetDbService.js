@@ -24,11 +24,11 @@ module.exports = {
 	},
 
 	saveTweets: async tweets => {
-		var tweetSaved = null
 		try {
-			tweetSaved = await Tweet.insertMany(tweets, {
+			const tweetSaved = await Tweet.insertMany(tweets, {
 				ordered: false
 			})
+			return tweetSaved
 		} catch (error) {
 			if (error.code === 11000 || error.code === 11001) {
 				console.log('ignored duplicates')
@@ -36,7 +36,6 @@ module.exports = {
 				console.log(error)
 			}
 		}
-		return tweetSaved
 	},
 
 	deleteTweets: async conditions => {
