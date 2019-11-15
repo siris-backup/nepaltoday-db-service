@@ -75,11 +75,25 @@ const User = mongoose.model(
 		timeZone: String
 	})
 )
+const Notification = mongoose.model(
+	'Notification',
+	new Schema({
+		article: {
+			source: { type: mongoose.Schema.Types.ObjectId, ref: 'Article', unique: true }
+		},
+		user: {
+			source: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+		},
+		createdAt: { type: Date, default: Date.now() },
+		updatedAt: { type: Date, default: Date.now() }
+	})
+)
 
 module.exports = {
+	User,
+	Tweet,
 	Article,
 	Source,
-	TwitterHandle,
-	Tweet,
-	User
+	Notification,
+	TwitterHandle
 }
