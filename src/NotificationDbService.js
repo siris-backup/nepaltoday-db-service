@@ -16,12 +16,8 @@ module.exports = {
 			return error
 		}
 	},
-	getNotification: async date => {
-		const notificationHistory = await Notification.find({
-			createdAt: {
-				$gte: date
-			}
-		})
+	getNotifications: async (conditions = {}) => {
+		const notificationHistory = await Notification.find(conditions)
 		return notificationHistory
 	},
 	deleteNotification: async conditions => {
