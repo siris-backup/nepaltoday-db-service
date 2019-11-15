@@ -5,7 +5,7 @@ const Article = mongoose.model(
 	'Article',
 	new Schema({
 		id: String,
-		title: { type: String, required: true },
+		title: { type: String, required: true, unique: true },
 		link: { type: String, unique: true, required: true },
 		imageLink: { type: String, required: true },
 		isHeadline: Boolean,

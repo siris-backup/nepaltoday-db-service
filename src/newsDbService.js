@@ -3,15 +3,16 @@ const { Article, Source } = require('./database/mongooseSchema')
 module.exports = {
 	saveArticles: async articles => {
 		try {
-			return await Article.insertMany(articles, { ordered: false })
+			const savedArticles =  await Article.insertMany(articles, { ordered: false })
+			return savedArticles
 		} catch (error) {
 			if (error.code === 11000 || error.code === 11001) {
 				console.log('ignored duplicates')
 			} else {
 				console.log(error)
 			}
+			return error
 		}
-		return null
 	},
 
 	saveArticle: async article => {
@@ -28,12 +29,21 @@ module.exports = {
 	},
 
 	deleteArticles: async conditions => {
-		return await Article.deleteMany(conditions)
+		const deletedArticles = await Article.deleteMany(conditions)
+		return deletedArticles
 	},
 
 	getArticles: async () => {
 		const newsArticles = await Article.find()
 		return newsArticles
+	},
+
+	getLatestNewsArticle: async () => {
+		const latestNewsArticle = await Article.find({ category: 'news' })
+			.sort({ _id: -1 })
+			.limit(1)
+			.lean()
+		return latestNewsArticle
 	},
 
 	getAllSources: async () => {
