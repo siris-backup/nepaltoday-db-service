@@ -78,12 +78,8 @@ const User = mongoose.model(
 const Notification = mongoose.model(
 	'Notification',
 	new Schema({
-		article: {
-			source: { type: mongoose.Schema.Types.ObjectId, ref: 'Article', unique: true }
-		},
-		user: {
-			source: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-		},
+		article: { type: mongoose.Schema.Types.ObjectId, ref: 'Article', required: true, unique: true },
+		user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 		createdAt: { type: Date, default: Date.now() },
 		updatedAt: { type: Date, default: Date.now() }
 	})

@@ -3,9 +3,7 @@ const { Notification } = require('./database/mongooseSchema')
 module.exports = {
 	saveNotifications: async notifications => {
 		try {
-			const savedNotificationLogs = await Notification.insertMany(notifications, {
-				ordered: false
-			})
+			const savedNotificationLogs = await Notification.insertMany(notifications)
 			return savedNotificationLogs
 		} catch (error) {
 			if (error.code === 11000 || error.code === 11001) {
@@ -13,8 +11,12 @@ module.exports = {
 			} else {
 				console.log(error)
 			}
-			return error
+			throw new Error(error)
 		}
+	},
+	saveNotification: async notification => {
+		const res = await Notification.create(notification)
+		return res
 	},
 	getNotifications: async (conditions = {}) => {
 		const notificationHistory = await Notification.find(conditions)
