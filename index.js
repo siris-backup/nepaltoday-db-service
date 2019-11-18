@@ -3,6 +3,7 @@ const userDbService = require('./src/UserDbService')
 const newsDbService = require('./src/newsDbService.js')
 const TweetDbService = require('./src/TweetDbService.js')
 const mongooseSchema = require('./src/database/mongooseSchema')
+const NotificationDbService = require('./src/NotificationDbService')
 
 const mongoose = require('mongoose')
 mongoose.promise = global.Promise
@@ -12,5 +13,6 @@ module.exports = {
 	newsDbService,
 	TweetDbService,
 	mongooseSchema,
-	userDbService
+	userDbService,
+	NotificationDbService
 }
