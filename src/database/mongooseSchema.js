@@ -82,7 +82,7 @@ const Notification = mongoose.model(
 		user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 		createdAt: { type: Date, default: Date.now() },
 		updatedAt: { type: Date, default: Date.now() }
-	})
+	}).index({ article: 1, user: 1 }, { unique: true })
 )
 
 module.exports = {
