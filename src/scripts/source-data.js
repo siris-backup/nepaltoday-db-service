@@ -20,6 +20,10 @@ db.sources.insert({
 		{
 			name: 'sports',
 			path: '/sports'
+		},
+		{
+			name: 'entertainment',
+			path: '/art'
 		}
 	]
 })
@@ -39,6 +43,15 @@ db.sources.insert({
 		{
 			name: 'sports',
 			path: '/section/sports'
+		},
+		{
+			name: 'entertainment',
+			path: '/section/kala'
+		},
+
+		{
+			name: 'business',
+			path: '/kinmel'
 		}
 	]
 })

@@ -78,7 +78,7 @@ const User = mongoose.model(
 const Notification = mongoose.model(
 	'Notification',
 	new Schema({
-		article: { type: mongoose.Schema.Types.ObjectId, ref: 'Article', required: true, unique: true },
+		article: { type: mongoose.Schema.Types.ObjectId, ref: 'Article', required: true },
 		user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 		createdAt: { type: Date, default: Date.now() },
 		updatedAt: { type: Date, default: Date.now() }
