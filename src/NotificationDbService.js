@@ -1,10 +1,16 @@
 const { Notification } = require('./database/mongooseSchema')
 
 module.exports = {
+	saveNotification: async notification => {
+		const res = await Notification.create(notification)
+		return res
+	},
 	saveNotifications: async notifications => {
 		try {
-			const savedNotificationLogs = await Notification.insertMany(notifications)
-			return savedNotificationLogs
+			for (const notification of notifications) {
+				const res = await Notification.create(notification)
+				return res
+			}
 		} catch (error) {
 			if (error.code === 11000 || error.code === 11001) {
 				console.log('________ignored duplicates________')
@@ -14,10 +20,7 @@ module.exports = {
 			throw new Error(error)
 		}
 	},
-	saveNotification: async notification => {
-		const res = await Notification.create(notification)
-		return res
-	},
+
 	getNotifications: async (conditions = {}) => {
 		const notificationHistory = await Notification.find(conditions)
 		return notificationHistory
