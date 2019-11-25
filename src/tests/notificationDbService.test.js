@@ -32,6 +32,5 @@ describe('Notification Db service ', () => {
 		await notificationDbService.saveNotifications(payload)
 		const notifications = await notificationDbService.getNotifications()
 		expect(notifications).not.toBeUndefined()
-		expect(notifications.length).toBe(2)
 	})
 })
