@@ -11,15 +11,16 @@ describe('NewsDbService', () => {
 		const article = {
 			title: 'dummy title ' + Math.random(),
 			link: 'link' + Math.random(),
-			imageLink: 'imageLink'
+			imageLink: 'imageLink',
+			source: mongoose.Types.ObjectId('5d6a823c623ac6d9a39391eb')
 		}
-		const articlesSaved = await newsDbService.saveArticles([article])
+		const articlesSaved = await newsDbService.saveArticle(article)
 
-		expect(articlesSaved[0]._id).not.toBeNull()
-		expect(articlesSaved[0].createdDate).not.toBeUndefined()
-		expect(articlesSaved[0].modifiedDate).not.toBeUndefined()
+		expect(articlesSaved._id).not.toBeNull()
+		expect(articlesSaved.createdDate).not.toBeUndefined()
+		expect(articlesSaved.modifiedDate).not.toBeUndefined()
 
-		await newsDbService.deleteArticles({ _id: articlesSaved[0]._id })
+		await newsDbService.deleteArticles({ _id: articlesSaved._id })
 	})
 
 	it('get single artilce', async () => {
