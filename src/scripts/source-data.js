@@ -109,3 +109,27 @@ db.sources.insert({
 		}
 	]
 })
+
+db.sources.insert({
+	name: 'अनलाईन खबर',
+	link: 'https://www.onlinekhabar.com',
+	logoLink: 'https://www.onlinekhabar.com/wp-content/themes/onlinekhabar-2018/img/logoMain.png',
+	category: [
+		{
+			name: 'business',
+			path: '/business'
+		},
+		{
+			name: 'opinion',
+			path: '/category/opinion'
+		},
+		{
+			name: 'sports',
+			path: '/sports'
+		},
+		{
+			name: 'entertainment',
+			path: '/entertainment'
+		}
+	]
+})
